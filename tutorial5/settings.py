@@ -66,7 +66,7 @@ WSGI_APPLICATION = 'tutorial5.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'projonedb',
+        'NAME': 'projtwodb',
         'USER': 'postgres',
         'PASSWORD': 'pritams1',
         'HOST': 'localhost',
