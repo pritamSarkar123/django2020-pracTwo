@@ -1,0 +1,29 @@
+<!DOCTYPE html> {% extends 'userApp/base.html' %} {% block content %}
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">This is Home page, to do login or signup</h1>
+      <p class="lead">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+        possimus cupiditate officiis voluptatem dolore, atque temporibus quaerat
+        exercitationem debitis, eos qui dolor tempore, incidunt veniam in? Dicta
+        asperiores consectetur id?
+      </p>
+    </div>
+  </div>
+</div>
+<script>
+  home = document.querySelector(".home-link");
+  register = document.querySelector(".register-link");
+  login = document.querySelector(".login-link");
+  if (!home.classList.contains("active")) {
+    home.classList.add("active");
+  }
+  if (register.classList.contains("active")) {
+    register.classList.remove("active");
+  }
+  if (login.classList.contains("active")) {
+    login.classList.remove("active");
+  }
+</script>
+{% endblock %}

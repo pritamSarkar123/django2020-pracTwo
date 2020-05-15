@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--login page will be created here-->
+{% extends 'userApp/base.html' %} {% block content %}
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Do login here</h1>
+      <p class="lead">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi nam
+        tempora sunt natus architecto dolor dignissimos officiis nemo hic, harum
+        nesciunt delectus. Consequuntur harum eum veniam voluptate, aspernatur
+        laboriosam possimus?
+      </p>
+    </div>
+    {% if active_status %}
+    <div class="container">
+      <h1>{{ active_status }}</h1>
+    </div>
+    {% endif %} {% if login_status %}
+    <div class="container">
+      <h1>{{ login_status }}</h1>
+    </div>
+    {% endif %}
+    <div class="container align-self-center">
+      <h2>Log in here</h2>
+      <div class="form-group">
+        <form action="{% url 'userApp:login' %}" method="POST">
+          {% csrf_token %}
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter Username"
+            required
+          />
+          <br />
+          <label for="password">Password:</label>
+          <input type="password" name="password" required />
+          <br />
+          <input type="submit" class="btn btn-primary" value="Login!" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  home = document.querySelector(".home-link");
+  register = document.querySelector(".register-link");
+  login = document.querySelector(".login-link");
+  if (home.classList.contains("active")) {
+    home.classList.remove("active");
+  }
+  if (register.classList.contains("active")) {
+    register.classList.remove("active");
+  }
+  if (!login.classList.contains("active")) {
+    login.classList.add("active");
+  }
+</script>
+{% endblock %}

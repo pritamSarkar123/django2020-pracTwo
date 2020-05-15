@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--registration page-->
+{% extends 'userApp/base.html' %} {% block content %}
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Do Register here</h1>
+      <p class="lead">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi nam
+        tempora sunt natus architecto dolor dignissimos officiis nemo hic, harum
+        nesciunt delectus. Consequuntur harum eum veniam voluptate, aspernatur
+        laboriosam possimus?
+      </p>
+    </div>
+    {% if registered %}
+    <h1>Thank you for Registration</h1>
+    {% else %}
+    <div class="container align-self-center">
+      <h3>Fill Out the form:</h3>
+      <div class="form-group">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
+          <input
+            class="btn btn-primary"
+            type="submit"
+            name=""
+            value="Register!"
+          />
+        </form>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<script>
+  home = document.querySelector(".home-link");
+  register = document.querySelector(".register-link");
+  login = document.querySelector(".login-link");
+  if (home.classList.contains("active")) {
+    home.classList.remove("active");
+  }
+  if (!register.classList.contains("active")) {
+    register.classList.add("active");
+  }
+  if (login.classList.contains("active")) {
+    login.classList.remove("active");
+  }
+</script>
+{% endblock %}
